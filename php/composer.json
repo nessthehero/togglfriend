@@ -1,0 +1,17 @@
+{
+    "name": "imoffitt/togglfriend",
+    "description": "Something to help me create toggle projects faster",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ian Moffitt",
+            "email": "IMoffitt@barkleyrei.com"
+        }
+    ],
+    "require": {
+        "morningtrain/toggl-api": "^1.0",
+        "ext-json": "^1.7",
+        "phpfastcache/phpfastcache": "^7.0"
+    }
+}
