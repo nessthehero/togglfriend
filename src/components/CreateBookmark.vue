@@ -32,9 +32,10 @@
 	import {EventBus} from '../EventBus.js';
 	import axios from 'axios';
 	import firebase from '../Firebase.js';
+	import { config } from '../togglfriend.config.js';
 
-	const dataClients = 'http://local.tog/php/GetClients.php';
-	const dataClientProjects = 'http://local.tog/php/GetClientProjects.php';
+	const dataClients = config.endpoints.dataClients;
+	const dataClientProjects = config.endpoints.dataClientProjects;
 
 	export default {
 		name: 'CreateBookmark',

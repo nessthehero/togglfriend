@@ -16,8 +16,9 @@
 <script>
 	import {EventBus} from '@/EventBus.js';
 	import axios from 'axios';
+	import { config } from '../togglfriend.config.js';
 
-	const endpointRunningTimeEntry = 'http://local.tog/php/RunningTimeEntry.php';
+	const endpointRunningTimeEntry = config.endpoints.endpointRunningTimeEntry;
 
 	export default {
 		name: 'Timer',

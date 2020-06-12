@@ -62,10 +62,11 @@
 <script>
 	import {EventBus} from '@/EventBus.js';
 	import axios from 'axios';
+	import { config } from '../togglfriend.config.js';
 
-	const endpointCreateClient = 'http://local.tog/php/CreateClient.php';
-	const dataClients = 'http://local.tog/php/GetClients.php';
-	const dataClientProjects = 'http://local.tog/php/GetClientProjects.php';
+	const endpointCreateClient = config.endpoints.endpointCreateClient;
+	const dataClients = config.endpoints.dataClients;
+	const dataClientProjects = config.endpoints.dataClientProjects;
 
 	export default {
 		name: 'ClientProjects',

@@ -14,8 +14,9 @@
 	import {EventBus} from '@/EventBus.js';
 	import firebase from '../Firebase.js';
 	import axios from 'axios';
+	import { config } from '../togglfriend.config.js';
 
-	const dataStartTimerProject = 'http://local.tog/php/StartTimerProject.php';
+	const dataStartTimerProject = config.endpoints.dataStartTimerProject;
 
 	export default {
 		name: 'Bookmark',
