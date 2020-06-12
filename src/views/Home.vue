@@ -222,6 +222,6 @@
 
 <style lang="scss">
 	.page {
-		margin: 1rem 0;
+		margin: 1rem 0 200px;
 	}
 </style>

@@ -1,10 +1,10 @@
 <template>
 	<div class="the-timer">
 		<div class="row">
-			<div class="columns medium-6 the-timer__column">
+			<div class="columns medium-4 the-timer__column">
 				<span class="the-timer__timer">{{ timer }}</span>
 			</div>
-			<div class="columns medium-6 the-timer__column">
+			<div class="columns medium-8 the-timer__column">
 				<p class="the-timer__task">{{ activeTask }}</p>
 				<p class="the-timer__project">{{ activeProject }}</p>
 				<p class="the-timer__client">{{ activeClient }}</p>
@@ -144,6 +144,14 @@
 			height: 100%;
 			justify-self: center;
 			text-align: center;
+
+			@include breakpoint(medium) {
+				font-size: 22px;
+			}
+
+			@include breakpoint(large) {
+				font-size: 30px;
+			}
 		}
 
 		p {
@@ -161,6 +169,7 @@
 
 		&__client {
 			font-style: italic;
+			font-size: 12px;
 		}
 	}
 </style>
