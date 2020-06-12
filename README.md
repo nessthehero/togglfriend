@@ -20,9 +20,13 @@ If this isn't possible, perform the following steps:
 2. Run npm install in the /scripts folder.
 3. Run composer install in the /php folder.
 
-## Firebase
+## Configuration
 
 Create a new project on Firebase, go to project settings and paste the config object into togglfriend.config.js. Resave the example file to create it.
+
+Create a new collection under databases and put the name of the collection into the config.
+
+If you are using a localhost, update the config option with the URL. Do not include an end slash.
 
 ## PHP Config
 

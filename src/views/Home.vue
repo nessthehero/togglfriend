@@ -51,7 +51,7 @@
 	// @ is an alias to /src
 	import {EventBus} from '@/EventBus.js';
 	import axios from 'axios';
-	import { config } from '../togglfriend.config.js';
+	import config from '../togglfriend.config.js';
 
 	import Job from '@/components/Job.vue';
 	import ClientProjects from '@/components/ClientProjects';

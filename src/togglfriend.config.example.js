@@ -10,8 +10,9 @@ let config = {
 		messagingSenderId: 'EXAMPLE',
 		appId: 'EXAMPLE'
 	},
+	fireDatabase: 'bookmarks',
 	endpointBase: 'http://localhost'
-}
+};
 
 config.endpoints = {
 	dataClientProjects: config.endpointBase + '/php/GetClientProjects.php',
@@ -21,6 +22,6 @@ config.endpoints = {
 	endpointCreateClient: config.endpointBase + '/php/CreateClient.php',
 	endpointCreateProject: config.endpointBase + '/php/CreateProject.php',
 	endpointRunningTimeEntry: config.endpointBase + '/php/RunningTimeEntry.php',
-}
+};
 
 export default config;

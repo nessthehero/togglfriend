@@ -16,7 +16,7 @@
 <script>
 	import {EventBus} from '@/EventBus.js';
 	import axios from 'axios';
-	import { config } from '../togglfriend.config.js';
+	import config from '../togglfriend.config.js';
 
 	const endpointRunningTimeEntry = config.endpoints.endpointRunningTimeEntry;
 

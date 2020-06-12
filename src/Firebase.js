@@ -1,5 +1,5 @@
 import * as firebase from 'firebase';
-import { config } from './togglfriend.config.js';
+import config from './togglfriend.config.js';
 
 const settings = {};
 

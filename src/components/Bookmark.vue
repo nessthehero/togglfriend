@@ -14,7 +14,7 @@
 	import {EventBus} from '@/EventBus.js';
 	import firebase from '../Firebase.js';
 	import axios from 'axios';
-	import { config } from '../togglfriend.config.js';
+	import config from '../togglfriend.config.js';
 
 	const dataStartTimerProject = config.endpoints.dataStartTimerProject;
 
@@ -27,7 +27,7 @@
 					'bookmark': true,
 					'bookmark--disabled': this.startFlag
 				},
-				bookmarks: firebase.firestore().collection('bookmarks'),
+				bookmarks: firebase.firestore().collection(config.fireDatabase),
 				startFlag: false
 			};
 		},

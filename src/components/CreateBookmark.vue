@@ -32,7 +32,7 @@
 	import {EventBus} from '../EventBus.js';
 	import axios from 'axios';
 	import firebase from '../Firebase.js';
-	import { config } from '../togglfriend.config.js';
+	import config from '../togglfriend.config.js';
 
 	const dataClients = config.endpoints.dataClients;
 	const dataClientProjects = config.endpoints.dataClientProjects;
@@ -47,7 +47,7 @@
 				projectNames: [],
 				clients: [],
 				projects: [],
-				bookmarks: firebase.firestore().collection('bookmarks')
+				bookmarks: firebase.firestore().collection(config.fireDatabase)
 			};
 		},
 		created: function () {
