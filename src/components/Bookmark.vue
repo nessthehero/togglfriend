@@ -28,10 +28,29 @@
 					'bookmark--disabled': this.startFlag
 				},
 				bookmarks: firebase.firestore().collection(config.fireDatabase),
-				startFlag: false
+				startFlag: false,
+				user: {
+					loggedIn: false,
+					id: '',
+					data: {}
+				}
 			};
 		},
-		created: function () {
+		mounted() {
+			firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
+			firebase.auth().onAuthStateChanged(user => {
+				if (user) {
+					this.user.loggedIn = true;
+					this.user.id = user.uid;
+					this.user.data = user;
+				} else {
+					this.user.loggedIn = false;
+					this.user.id = '';
+					this.user.data = {};
+				}
+			});
+		},
+		created() {
 
 			EventBus.$on('start-new', function () {
 				this.startFlag = true;

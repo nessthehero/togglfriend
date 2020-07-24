@@ -6,7 +6,7 @@
 					Add client
 				</legend>
 				<div class="input-group">
-					<input name="newclient" type="text" class="input-group-field" v-model="newClient" @disabled="creatingClient"/>
+					<input name="newclient" type="text" class="input-group-field" placeholder="Create a new client..." v-model="newClient" @disabled="creatingClient"/>
 					<div class="input-group-button">
 						<button class="button" @click="createClient" :disabled="creatingClient">Create</button>
 					</div>

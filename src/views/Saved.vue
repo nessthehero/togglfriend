@@ -38,13 +38,32 @@
 			return {
 				marks: [],
 				bookmarkList: [],
+				user: {
+					loggedIn: false,
+					id: '',
+					data: {}
+				},
 				bookmarks: firebase.firestore().collection(config.fireDatabase)
 			};
 		},
 		created: function () {
-			this.updateBookmarkList();
-
 			EventBus.$on('bookmark-add', this.updateBookmarkList);
+		},
+		mounted: function () {
+			firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
+			firebase.auth().onAuthStateChanged(user => {
+				if (user) {
+					this.user.loggedIn = true;
+					this.user.id = user.uid;
+					this.user.data = user;
+					this.updateBookmarkList();
+				} else {
+					this.user.loggedIn = false;
+					this.user.id = '';
+					this.user.data = {};
+					this.updateBookmarkList();
+				}
+			});
 		},
 		computed: {
 
@@ -66,7 +85,9 @@
 			updateBookmarkList() {
 				this.bookmarkList = [];
 
-				this.bookmarks.get()
+				console.log(this.user.id);
+
+				this.bookmarks.where('user', '==', this.user.id).get()
 					.then(m => {
 						m.forEach(mm => {
 							this.bookmarkList.push(

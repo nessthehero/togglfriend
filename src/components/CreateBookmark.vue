@@ -47,10 +47,29 @@
 				projectNames: [],
 				clients: [],
 				projects: [],
-				bookmarks: firebase.firestore().collection(config.fireDatabase)
+				bookmarks: firebase.firestore().collection(config.fireDatabase),
+				user: {
+					loggedIn: false,
+					id: '',
+					data: {}
+				}
 			};
 		},
-		created: function () {
+		mounted() {
+			firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
+			firebase.auth().onAuthStateChanged(user => {
+				if (user) {
+					this.user.loggedIn = true;
+					this.user.id = user.uid;
+					this.user.data = user;
+				} else {
+					this.user.loggedIn = false;
+					this.user.id = '';
+					this.user.data = {};
+				}
+			});
+		},
+		created() {
 
 			axios.get(dataClients).then(function (response) {
 				this.clients = response.data;
@@ -84,6 +103,7 @@
 
 				this.bookmarks
 					.add({
+						'user': this.user.id,
 						'client_id': _client[0].id,
 						'client_name': _client[0].name,
 						'project_id': _project[0].id,
